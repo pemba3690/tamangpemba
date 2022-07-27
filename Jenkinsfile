@@ -1,19 +1,23 @@
 pipeline {
     agent any 
     stages {
-        stage('website running') { 
+        stage('installing httpd') { 
             steps {
-                sh ' echo building website'
+
+                sh "sudo rm -rvf /var/www/html/*"
+                sh "sudo rm -rvf /var/www/html/.git"
+                
             }
         }
-        stage('Test') { 
+        stage('Cloning repo') { 
             steps {
-                echo ' testing website'
+                sh "sudo git clone git@github.com:pemba3690/tamangpemba.git /var/www/html/"
+                // 
             }
         }
-        stage('Deploy') { 
+        stage('Reloading code') { 
             steps {
-                echo 'deploying website' 
+                sh "sudo systemctl reload httpd"
             }
         }
     }
