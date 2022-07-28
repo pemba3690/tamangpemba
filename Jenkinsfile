@@ -11,7 +11,7 @@ pipeline {
         }
         stage('Cloning repo') { 
             steps {
-                sh "https://github.com/pemba3690/tamangpemba.git /var/www/html/"
+                sh " sudo git clone https://github.com/pemba3690/tamangpemba.git  /var/www/html/"
                 // 
             }
         }
