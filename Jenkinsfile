@@ -1,7 +1,7 @@
 pipeline {
     agent any 
     stages {
-        stage('installing httpd') { 
+        stage('removing old files') { 
             steps {
 
                 sh "sudo rm -rvf /var/www/html/*"
